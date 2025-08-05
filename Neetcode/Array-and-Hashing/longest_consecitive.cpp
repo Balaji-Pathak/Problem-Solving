@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
@@ -7,7 +9,7 @@ public:
         int currLen = 1, maxLen = 1;
 
         for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] == nums[i - 1]) continue; // skip duplicates
+            if (nums[i] == nums[i - 1]) continue; 
             if (nums[i] == nums[i - 1] + 1) {
                 currLen++;
             } else {
@@ -16,6 +18,18 @@ public:
             }
         }
 
-        return max(maxLen, currLen); // last streak might be the longest
+        return max(maxLen, currLen);
     }
 };
+
+
+
+int main() {
+    Solution sol;
+    vector<int> nums = {100, 4, 200, 1, 3, 2};
+    int result = sol.longestConsecutive(nums);
+    
+    cout << "Longest Consecutive Sequence Length: " << result << endl;
+
+    return 0;
+}
